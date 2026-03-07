@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Reveal } from '@/components/ui/reveal';
 import { Button } from '@/components/ui/button';
 import { Send, MessageCircle } from 'lucide-react';
+import { SubmitSuccess } from '@/components/ui/submit-success';
 
 const WHATSAPP_NUMBER = '919999999999'; // Replace with actual WhatsApp number
 
@@ -14,12 +15,41 @@ export function Contact() {
         message: '',
     });
     const [submitted, setSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [error, setError] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // For now, just show success. Can be connected to an API later.
-        setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 4000);
+        setIsSubmitting(true);
+        setError('');
+
+        try {
+            const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
+            if (!scriptUrl) throw new Error('Form endpoint not configured');
+
+            const res = await fetch(scriptUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    Name: formData.name,
+                    Email: formData.email,
+                    Message: formData.message,
+                }),
+            });
+
+            const data = await res.json();
+
+            if (data.result === 'success') {
+                setSubmitted(true);
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                throw new Error(data.message || 'Submission failed');
+            }
+        } catch {
+            setError('Something went wrong. Please try WhatsApp or email instead.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const openWhatsApp = () => {
@@ -78,75 +108,83 @@ export function Contact() {
                         <Reveal delay={0.35}>
                             <p className="text-xs text-muted mt-4">
                                 Or email us at{' '}
-                                <a href="mailto:hello@indivio.com" className="text-foreground hover:underline">
-                                    hello@indivio.com
+                                <a href="mailto:hello@indivio.in" className="text-foreground hover:underline">
+                                    hello@indivio.in
                                 </a>
                             </p>
                         </Reveal>
                     </div>
 
-                    {/* Right - Form */}
+                    {/* Right - Form or Success */}
                     <Reveal animation="slideRight" delay={0.1}>
-                        <form
-                            onSubmit={handleSubmit}
-                            className="rounded-2xl border border-default bg-card p-8 space-y-5"
-                        >
-                            <div>
-                                <label htmlFor="name" className="block text-xs font-medium text-muted uppercase tracking-wider mb-2">
-                                    Your Name
-                                </label>
-                                <input
-                                    id="name"
-                                    type="text"
-                                    required
-                                    value={formData.name}
-                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                    className="w-full bg-[var(--background)] border border-default rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400 transition-shadow"
-                                    placeholder="John Doe"
-                                />
+                        {submitted ? (
+                            <div className="rounded-2xl border border-default bg-card">
+                                <SubmitSuccess onReset={() => setSubmitted(false)} />
                             </div>
-
-                            <div>
-                                <label htmlFor="email" className="block text-xs font-medium text-muted uppercase tracking-wider mb-2">
-                                    Email Address
-                                </label>
-                                <input
-                                    id="email"
-                                    type="email"
-                                    required
-                                    value={formData.email}
-                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                    className="w-full bg-[var(--background)] border border-default rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400 transition-shadow"
-                                    placeholder="you@example.com"
-                                />
-                            </div>
-
-                            <div>
-                                <label htmlFor="message" className="block text-xs font-medium text-muted uppercase tracking-wider mb-2">
-                                    Your Message
-                                </label>
-                                <textarea
-                                    id="message"
-                                    required
-                                    rows={4}
-                                    value={formData.message}
-                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                    className="w-full bg-[var(--background)] border border-default rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-neutral-400 transition-shadow resize-none"
-                                    placeholder="Tell us about your project..."
-                                />
-                            </div>
-
-                            {submitted ? (
-                                <div className="text-center py-3 text-sm text-emerald-600 dark:text-emerald-400 font-medium">
-                                    ✓ Message sent! We&apos;ll get back to you soon.
+                        ) : (
+                            <form
+                                onSubmit={handleSubmit}
+                                className="rounded-2xl border border-default bg-card p-8 space-y-5"
+                            >
+                                <div>
+                                    <label htmlFor="name" className="block text-xs font-medium text-muted uppercase tracking-wider mb-2">
+                                        Your Name
+                                    </label>
+                                    <input
+                                        id="name"
+                                        type="text"
+                                        required
+                                        value={formData.name}
+                                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                        className="w-full bg-[var(--background)] border border-default rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-shadow"
+                                        placeholder="John Doe"
+                                    />
                                 </div>
-                            ) : (
-                                <Button type="submit" size="lg" className="w-full group">
-                                    Send Message
-                                    <Send className="ml-2 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+
+                                <div>
+                                    <label htmlFor="email" className="block text-xs font-medium text-muted uppercase tracking-wider mb-2">
+                                        Email Address
+                                    </label>
+                                    <input
+                                        id="email"
+                                        type="email"
+                                        required
+                                        value={formData.email}
+                                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                        className="w-full bg-[var(--background)] border border-default rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-shadow"
+                                        placeholder="you@example.com"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label htmlFor="message" className="block text-xs font-medium text-muted uppercase tracking-wider mb-2">
+                                        Your Message
+                                    </label>
+                                    <textarea
+                                        id="message"
+                                        required
+                                        rows={4}
+                                        value={formData.message}
+                                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                        className="w-full bg-[var(--background)] border border-default rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-shadow resize-none"
+                                        placeholder="Tell us about your project..."
+                                    />
+                                </div>
+
+                                {error && (
+                                    <div className="text-center py-2 text-sm text-red-500 font-medium">
+                                        {error}
+                                    </div>
+                                )}
+
+                                <Button type="submit" size="lg" className="w-full group" disabled={isSubmitting}>
+                                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                                    {!isSubmitting && (
+                                        <Send className="ml-2 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                    )}
                                 </Button>
-                            )}
-                        </form>
+                            </form>
+                        )}
                     </Reveal>
                 </div>
             </div>
