@@ -1,9 +1,62 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import { Reveal } from '@/components/ui/reveal';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+
+function useTypingEffect(text: string, speed = 50, startDelay = 300) {
+    const [displayed, setDisplayed] = useState('');
+    const [done, setDone] = useState(false);
+    const started = useRef(false);
+
+    useEffect(() => {
+        if (started.current) return;
+        started.current = true;
+
+        const timeout = setTimeout(() => {
+            let i = 0;
+            const interval = setInterval(() => {
+                i++;
+                setDisplayed(text.slice(0, i));
+                if (i >= text.length) {
+                    clearInterval(interval);
+                    setDone(true);
+                }
+            }, speed);
+        }, startDelay);
+
+        return () => clearTimeout(timeout);
+    }, [text, speed, startDelay]);
+
+    return { displayed, done };
+}
+
+const HERO_TEXT = 'We design & build websites that grow your business.';
+const BEFORE_GRADIENT = 'We design & build';
+const GRADIENT_PART = ' websites that grow ';
+const AFTER_GRADIENT = 'your business.';
+
+function TypedHeading() {
+    const { displayed, done } = useTypingEffect(HERO_TEXT, 80, 0);
+
+    const beforeEnd = BEFORE_GRADIENT.length;
+    const gradientEnd = beforeEnd + GRADIENT_PART.length;
+
+    const showBefore = displayed.slice(0, beforeEnd);
+    const showGradient = displayed.length > beforeEnd ? displayed.slice(beforeEnd, gradientEnd) : '';
+    const showAfter = displayed.length > gradientEnd ? displayed.slice(gradientEnd) : '';
+
+    return (
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground max-w-4xl leading-[1.08] mb-8">
+            {showBefore}
+            {showGradient && <span className="gradient-text">{showGradient}</span>}
+            {showAfter}
+            {!done && <span className="inline-block w-[3px] h-[1em] bg-[var(--accent)] ml-1 align-middle animate-blink" />}
+        </h1>
+    );
+}
 
 export function Hero() {
     return (
@@ -29,13 +82,7 @@ export function Hero() {
                     </div>
                 </Reveal>
 
-                <Reveal delay={0.1}>
-                    <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground max-w-4xl leading-[1.08] mb-8">
-                        We design & build
-                        <span className="gradient-text"> websites that grow </span>
-                        your business.
-                    </h1>
-                </Reveal>
+                <TypedHeading />
 
                 <Reveal delay={0.2}>
                     <p className="text-base md:text-lg text-muted max-w-lg mx-auto mb-10 leading-relaxed">

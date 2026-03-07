@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { StartupAnimation } from "@/components/layout/StartupAnimation";
+
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import { StructuredData } from "@/components/seo/StructuredData";
@@ -53,7 +53,6 @@ export default function RootLayout({
         className={`${inter.variable} font-sans antialiased min-h-screen flex flex-col`}
       >
         <StructuredData />
-        <StartupAnimation />
         <ScrollProgress />
         <Navbar />
         <main className="flex-1">
