@@ -81,7 +81,7 @@ export function Footer() {
                             </li>
                             <li>
                                 <Link
-                                    href="https://wa.me/919999999999"
+                                    href="https://wa.me/919798836199"
                                     target="_blank"
                                     className="text-sm text-muted hover:text-foreground transition-colors"
                                 >

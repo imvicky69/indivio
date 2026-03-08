@@ -46,7 +46,7 @@ const contactMethods = [
         icon: MessageCircle,
         title: 'WhatsApp',
         value: 'Chat with us',
-        href: 'https://wa.me/919999999999?text=Hi%20Indivio%2C%20I%27m%20interested%20in%20your%20services.',
+        href: 'https://wa.me/919798836199?text=Hi%20Indivio%2C%20I%27m%20interested%20in%20your%20services.',
         accent: true,
     },
     {
@@ -114,6 +114,7 @@ function ContactForm() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        phone: '',
         message: '',
     });
 
@@ -123,28 +124,30 @@ function ContactForm() {
         setError('');
 
         try {
-            const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
-            if (!scriptUrl) throw new Error('Form endpoint not configured');
-
-            const res = await fetch(scriptUrl, {
+            const res = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     Name: formData.name,
                     Email: formData.email,
+                    PhoneNumber: formData.phone,
                     Message: formData.message,
                 }),
             });
 
-            const data = await res.json();
-
-            if (data.result === 'success') {
+            if (res.ok) {
                 setSubmitted(true);
-                setFormData({ name: '', email: '', message: '' });
+                setFormData({ name: '', email: '', phone: '', message: '' });
             } else {
-                throw new Error(data.message || 'Submission failed');
+                try {
+                    const data = await res.json();
+                    throw new Error(data.message || 'Submission failed');
+                } catch {
+                    throw new Error('Submission failed');
+                }
             }
-        } catch {
+        } catch (err) {
+            console.error('Form error:', err);
             setError('Something went wrong. Please try WhatsApp or email instead.');
         } finally {
             setIsSubmitting(false);
@@ -222,6 +225,19 @@ function ContactForm() {
                                     placeholder="you@example.com"
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                    className="w-full px-4 py-3 rounded-xl border border-default bg-[var(--background)] text-foreground text-sm placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-shadow"
+                                />
+                            </div>
+
+                            <div>
+                                <label className="text-xs font-medium text-muted uppercase tracking-wider mb-2 block">
+                                    Phone Number
+                                </label>
+                                <input
+                                    type="tel"
+                                    placeholder="+91 98765 43210"
+                                    value={formData.phone}
+                                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                     className="w-full px-4 py-3 rounded-xl border border-default bg-[var(--background)] text-foreground text-sm placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-shadow"
                                 />
                             </div>

@@ -1,9 +1,61 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Reveal } from '@/components/ui/reveal';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+
+const FULL_TEXT = 'We design & build websites that grow your business.';
+const TYPING_SPEED = 45; // ms per character
+
+function TypewriterHeading() {
+    const [displayedText, setDisplayedText] = useState('');
+    const [isComplete, setIsComplete] = useState(false);
+
+    useEffect(() => {
+        let i = 0;
+        const interval = setInterval(() => {
+            if (i < FULL_TEXT.length) {
+                setDisplayedText(FULL_TEXT.slice(0, i + 1));
+                i++;
+            } else {
+                clearInterval(interval);
+                setIsComplete(true);
+            }
+        }, TYPING_SPEED);
+        return () => clearInterval(interval);
+    }, []);
+
+    // Find the gradient portion to style it
+    const gradientStart = FULL_TEXT.indexOf('websites that grow');
+    const gradientEnd = gradientStart + 'websites that grow'.length;
+
+    const renderText = () => {
+        const chars = displayedText.split('');
+        return chars.map((char, i) => {
+            const isGradientChar = i >= gradientStart && i < gradientEnd;
+            return (
+                <span key={i} className={isGradientChar ? 'gradient-text' : ''}>
+                    {char}
+                </span>
+            );
+        });
+    };
+
+    return (
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground max-w-4xl leading-[1.08] mb-8">
+            {renderText()}
+            {/* Blinking cursor */}
+            <motion.span
+                animate={{ opacity: isComplete ? [1, 0] : 1 }}
+                transition={isComplete ? { duration: 0.6, repeat: 3, repeatType: 'reverse' } : {}}
+                className="inline-block w-[3px] h-[0.85em] bg-[var(--accent)] ml-1 align-middle rounded-full"
+            />
+        </h1>
+    );
+}
 
 export function Hero() {
     return (
@@ -29,13 +81,7 @@ export function Hero() {
                     </div>
                 </Reveal>
 
-                <Reveal delay={0.1}>
-                    <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground max-w-4xl leading-[1.08] mb-8">
-                        We design & build
-                        <span className="gradient-text"> websites that grow </span>
-                        your business.
-                    </h1>
-                </Reveal>
+                <TypewriterHeading />
 
                 <Reveal delay={0.2}>
                     <p className="text-base md:text-lg text-muted max-w-lg mx-auto mb-10 leading-relaxed">

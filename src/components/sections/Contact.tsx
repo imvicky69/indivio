@@ -6,12 +6,13 @@ import { Button } from '@/components/ui/button';
 import { Send, MessageCircle } from 'lucide-react';
 import { SubmitSuccess } from '@/components/ui/submit-success';
 
-const WHATSAPP_NUMBER = '919999999999'; // Replace with actual WhatsApp number
+const WHATSAPP_NUMBER = '919798836199';
 
 export function Contact() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        phone: '',
         message: '',
     });
     const [submitted, setSubmitted] = useState(false);
@@ -24,28 +25,32 @@ export function Contact() {
         setError('');
 
         try {
-            const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
-            if (!scriptUrl) throw new Error('Form endpoint not configured');
-
-            const res = await fetch(scriptUrl, {
+            const res = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     Name: formData.name,
                     Email: formData.email,
+                    PhoneNumber: formData.phone,
                     Message: formData.message,
                 }),
             });
 
-            const data = await res.json();
-
-            if (data.result === 'success') {
+            // If the API responded with OK status, treat as success
+            if (res.ok) {
                 setSubmitted(true);
-                setFormData({ name: '', email: '', message: '' });
+                setFormData({ name: '', email: '', phone: '', message: '' });
             } else {
-                throw new Error(data.message || 'Submission failed');
+                // Try to read error message
+                try {
+                    const data = await res.json();
+                    throw new Error(data.message || 'Submission failed');
+                } catch {
+                    throw new Error('Submission failed');
+                }
             }
-        } catch {
+        } catch (err) {
+            console.error('Form error:', err);
             setError('Something went wrong. Please try WhatsApp or email instead.');
         } finally {
             setIsSubmitting(false);
@@ -153,6 +158,20 @@ export function Contact() {
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                         className="w-full bg-[var(--background)] border border-default rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-shadow"
                                         placeholder="you@example.com"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label htmlFor="phone" className="block text-xs font-medium text-muted uppercase tracking-wider mb-2">
+                                        Phone Number
+                                    </label>
+                                    <input
+                                        id="phone"
+                                        type="tel"
+                                        value={formData.phone}
+                                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                        className="w-full bg-[var(--background)] border border-default rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-[var(--accent)] transition-shadow"
+                                        placeholder="+91 98765 43210"
                                     />
                                 </div>
 

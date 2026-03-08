@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { StartupAnimation } from "@/components/layout/StartupAnimation";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import { StructuredData } from "@/components/seo/StructuredData";
@@ -40,6 +39,13 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: [
+      { url: '/images/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/images/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
@@ -53,7 +59,6 @@ export default function RootLayout({
         className={`${inter.variable} font-sans antialiased min-h-screen flex flex-col`}
       >
         <StructuredData />
-        <StartupAnimation />
         <ScrollProgress />
         <Navbar />
         <main className="flex-1">
