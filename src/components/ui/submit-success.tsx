@@ -3,7 +3,15 @@
 import { motion } from 'framer-motion';
 import { CheckCircle, Sparkles } from 'lucide-react';
 
-export function SubmitSuccess({ onReset }: { onReset?: () => void }) {
+export function SubmitSuccess({
+    onReset,
+    title = "Message sent successfully!",
+    message = "We've received your details and will get back to you within 24 hours."
+}: {
+    onReset?: () => void;
+    title?: string;
+    message?: string;
+}) {
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -68,7 +76,7 @@ export function SubmitSuccess({ onReset }: { onReset?: () => void }) {
                 transition={{ delay: 0.5 }}
                 className="text-xl font-semibold text-foreground mb-2"
             >
-                Message sent successfully!
+                {title}
             </motion.h3>
 
             <motion.p
@@ -77,7 +85,7 @@ export function SubmitSuccess({ onReset }: { onReset?: () => void }) {
                 transition={{ delay: 0.6 }}
                 className="text-sm text-muted max-w-sm leading-relaxed mb-6"
             >
-                We&apos;ve received your details and will get back to you within 24 hours.
+                {message}
             </motion.p>
 
             {/* Accent bar */}

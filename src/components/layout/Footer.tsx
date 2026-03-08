@@ -56,6 +56,7 @@ export function Footer() {
                                 { name: 'About', href: '/about' },
                                 { name: 'Work', href: '/work' },
                                 { name: 'Pricing', href: '/pricing' },
+                                { name: 'Calculator', href: '/estimate' },
                                 { name: 'Blog', href: '/blog' },
                                 { name: 'Contact', href: '/contact' },
                             ].map((link) => (

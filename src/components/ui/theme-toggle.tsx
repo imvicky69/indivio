@@ -21,6 +21,11 @@ export function ThemeToggle() {
             // Use system preference
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             setIsDark(prefersDark);
+            if (prefersDark) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
         }
     }, []);
 
