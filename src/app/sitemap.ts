@@ -1,7 +1,15 @@
 import type { MetadataRoute } from 'next';
+import { blogPosts } from '@/data/blogs';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://indivio.in';
+
+    const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.6,
+    }));
 
     return [
         { url: baseUrl, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
@@ -11,9 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { url: `${baseUrl}/work`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
         { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.8 },
         { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
-        { url: `${baseUrl}/blog/why-every-small-business-needs-a-website`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-        { url: `${baseUrl}/blog/template-vs-custom-built`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-        { url: `${baseUrl}/blog/what-makes-a-website-fast`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+        ...blogRoutes,
         { url: `${baseUrl}/privacy`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
         { url: `${baseUrl}/terms`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
     ];
