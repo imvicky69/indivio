@@ -6,6 +6,8 @@ export function StructuredData() {
         description: 'Custom websites, web apps, and school management systems built for performance.',
         url: 'https://indivio.in',
         email: 'hello@indivio.in',
+        logo: 'https://indivio.in/images/logo.png',
+        image: 'https://indivio.in/images/indivio.png',
         areaServed: {
             '@type': 'Country',
             name: 'India',
@@ -19,6 +21,37 @@ export function StructuredData() {
         ],
         priceRange: '₹15,000 - ₹2,00,000+',
         knowsLanguage: ['English', 'Hindi'],
+        sameAs: [
+            'https://wa.me/919798836199',
+        ],
+    };
+
+    const websiteSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Indivio',
+        url: 'https://indivio.in',
+        description: 'Custom websites, web apps, and school management systems built for performance. Based in India.',
+        publisher: {
+            '@type': 'Organization',
+            name: 'Indivio',
+            logo: {
+                '@type': 'ImageObject',
+                url: 'https://indivio.in/images/logo.png',
+            },
+        },
+    };
+
+    const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://indivio.in' },
+            { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://indivio.in/services' },
+            { '@type': 'ListItem', position: 3, name: 'Pricing', item: 'https://indivio.in/pricing' },
+            { '@type': 'ListItem', position: 4, name: 'Blog', item: 'https://indivio.in/blog' },
+            { '@type': 'ListItem', position: 5, name: 'Contact', item: 'https://indivio.in/contact' },
+        ],
     };
 
     const faqSchema = {
@@ -81,6 +114,14 @@ export function StructuredData() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
             />
             <script
                 type="application/ld+json"

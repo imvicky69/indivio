@@ -83,6 +83,7 @@ export function Footer() {
                                 <Link
                                     href="https://wa.me/919798836199"
                                     target="_blank"
+                                    rel="noopener noreferrer nofollow"
                                     className="text-sm text-muted hover:text-foreground transition-colors"
                                 >
                                     WhatsApp

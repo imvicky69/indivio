@@ -79,6 +79,7 @@ function ContactInfo() {
                             <Link
                                 href={method.href}
                                 target={method.href.startsWith('http') ? '_blank' : undefined}
+                                rel={method.href.startsWith('http') ? 'noopener noreferrer nofollow' : undefined}
                                 className={`group block rounded-2xl border p-5 transition-all duration-300 hover:-translate-y-1 ${method.accent
                                     ? 'border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30'
                                     : 'border-default bg-card'
@@ -122,6 +123,14 @@ function ContactForm() {
         e.preventDefault();
         setIsSubmitting(true);
         setError('');
+
+        // Honeypot check
+        const honeypot = document.getElementById('company-url') as HTMLInputElement;
+        if (honeypot?.value) {
+            setSubmitted(true);
+            setIsSubmitting(false);
+            return;
+        }
 
         try {
             const res = await fetch('/api/contact', {
@@ -201,6 +210,12 @@ function ContactForm() {
                     {/* Right — Form */}
                     <Reveal animation="slideRight" delay={0.1}>
                         <form onSubmit={handleSubmit} className="space-y-5">
+                            {/* Honeypot - hidden from real users */}
+                            <div className="absolute opacity-0 pointer-events-none h-0 overflow-hidden" aria-hidden="true">
+                                <label htmlFor="company-url">Company URL</label>
+                                <input id="company-url" type="text" name="company-url" tabIndex={-1} autoComplete="off" />
+                            </div>
+
                             <div>
                                 <label className="text-xs font-medium text-muted uppercase tracking-wider mb-2 block">
                                     Your Name *

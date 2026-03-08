@@ -24,6 +24,14 @@ export function Contact() {
         setIsSubmitting(true);
         setError('');
 
+        // Honeypot check
+        const honeypot = document.getElementById('website') as HTMLInputElement;
+        if (honeypot?.value) {
+            setSubmitted(true);
+            setIsSubmitting(false);
+            return;
+        }
+
         try {
             const res = await fetch('/api/contact', {
                 method: 'POST',
@@ -128,6 +136,23 @@ export function Contact() {
                             >
                                 {/* Form Top Highlight */}
                                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-[var(--accent)] rounded-b-full shadow-[0_0_20px_var(--accent-glow)]" />
+
+                                {/* Honeypot - hidden from real users */}
+                                <div className="absolute opacity-0 pointer-events-none h-0 overflow-hidden" aria-hidden="true">
+                                    <label htmlFor="website">Website</label>
+                                    <input
+                                        id="website"
+                                        type="text"
+                                        name="website"
+                                        tabIndex={-1}
+                                        autoComplete="off"
+                                        onChange={(e) => {
+                                            if (e.target.value) {
+                                                (e.target as HTMLInputElement).dataset.bot = 'true';
+                                            }
+                                        }}
+                                    />
+                                </div>
 
                                 <div className="space-y-2 focus-within:text-[var(--accent)] text-muted transition-colors">
                                     <label htmlFor="name" className="text-xs font-bold uppercase tracking-widest ml-1">

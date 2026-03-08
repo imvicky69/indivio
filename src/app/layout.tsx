@@ -18,10 +18,13 @@ export const metadata: Metadata = {
     template: "%s | Indivio",
   },
   description: "Custom websites, web apps, and school management systems built for performance. Based in India.",
-  keywords: ["web development", "website design", "web apps", "school management", "India", "Next.js", "React"],
+  keywords: ["web development", "website design", "web apps", "school management", "India", "Next.js", "React", "web development company India", "custom website India", "affordable web development"],
   authors: [{ name: "Indivio" }],
   creator: "Indivio",
   metadataBase: new URL("https://indivio.in"),
+  alternates: {
+    canonical: "https://indivio.in",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -29,11 +32,20 @@ export const metadata: Metadata = {
     siteName: "Indivio",
     title: "Indivio | Premium Websites & Web Apps — India",
     description: "Custom websites, web apps, and school management systems built for performance.",
+    images: [
+      {
+        url: "/images/indivio.png",
+        width: 1200,
+        height: 630,
+        alt: "Indivio — Premium Websites & Web Apps",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Indivio | Premium Websites & Web Apps — India",
     description: "Custom websites, web apps, and school management systems built for performance.",
+    images: ["/images/indivio.png"],
   },
   robots: {
     index: true,
@@ -46,6 +58,7 @@ export const metadata: Metadata = {
     ],
     apple: '/images/apple-touch-icon.png',
   },
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({

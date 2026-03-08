@@ -13,7 +13,7 @@ export function WhatsAppButton() {
         <a
             href={whatsappUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="fixed bottom-6 right-6 z-50 group"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}

@@ -320,6 +320,232 @@ const articleContent: Record<string, { sections: { heading: string; paragraphs: 
             },
         ],
     },
+    'how-much-does-website-cost-india-2026': {
+        sections: [
+            {
+                heading: 'The Short Answer: It Depends',
+                paragraphs: [
+                    'The cost of a website in India ranges from \u20B95,000 to \u20B95,00,000+ depending on the type, complexity, and who builds it. A simple template site from a freelancer costs less than a custom-coded web application from a professional studio.',
+                    'The key factors that drive pricing are: number of pages, custom design vs templates, backend functionality (forms, payments, logins), content management needs, and ongoing maintenance requirements.',
+                ],
+            },
+            {
+                heading: 'Template Websites (\u20B95,000 \u2013 \u20B920,000)',
+                paragraphs: [
+                    'These are WordPress or Wix-based sites using pre-made themes. They work for very basic online presence needs \u2014 a simple portfolio, a restaurant menu, or a placeholder site.',
+                    'The trade-off: they look generic, load slowly, require constant plugin updates, and offer limited customization. For businesses serious about growth, templates hit a ceiling fast.',
+                ],
+            },
+            {
+                heading: 'Custom Business Websites (\u20B915,000 \u2013 \u20B975,000)',
+                paragraphs: [
+                    'This is the sweet spot for most Indian businesses. A custom-designed website built with modern frameworks like Next.js loads instantly, ranks better on Google, and reflects your unique brand identity.',
+                    'At this range, you get 5-15 custom pages, mobile-responsive design, contact forms, WhatsApp integration, basic SEO setup, and a content management system for easy updates.',
+                ],
+            },
+            {
+                heading: 'Web Applications & Complex Projects (\u20B91,00,000+)',
+                paragraphs: [
+                    'If you need user logins, dashboards, payment processing, booking systems, or school management features, you are in web application territory. These require database design, API development, and ongoing server infrastructure.',
+                    'The investment is higher, but the ROI is massive \u2014 automating manual processes that currently consume hours of staff time every single day.',
+                ],
+            },
+            {
+                heading: 'How to Get the Best Value',
+                paragraphs: [
+                    'Start with a clear scope. Know what pages you need, what functionality is essential vs nice-to-have, and what your timeline looks like. Get multiple quotes, but don\'t just pick the cheapest \u2014 ask to see their portfolio and check if they use modern technology.',
+                    'A \u20B950,000 website that generates leads and ranks on Google is infinitely more valuable than a \u20B95,000 site that nobody visits.',
+                ],
+            },
+        ],
+    },
+    'ca-accountant-website-get-more-clients': {
+        sections: [
+            {
+                heading: 'Beyond Word-of-Mouth Referrals',
+                paragraphs: [
+                    'Most chartered accountants and tax professionals in India rely almost entirely on referrals. While referrals are powerful, they create an unpredictable pipeline. You have no control over when (or if) new clients come in.',
+                    'Meanwhile, thousands of people in your city are searching Google every month for "CA near me", "GST filing services", and "income tax consultant". If you don\'t have a website, those potential clients go to your competitors who do.',
+                ],
+            },
+            {
+                heading: 'What a CA Website Should Include',
+                paragraphs: [
+                    'Your website needs to clearly showcase your services: tax filing, GST registration, company incorporation, auditing, and financial advisory. Each service should have its own dedicated page with clear descriptions of what\'s included.',
+                    'Add your qualifications, years of experience, and professional memberships prominently. A "Resources" or blog section with articles like "ITR Filing Deadlines 2026" or "New GST Rules Explained" positions you as an authority and drives organic traffic.',
+                ],
+            },
+            {
+                heading: 'Lead Generation for Professional Services',
+                paragraphs: [
+                    'Unlike a retail store, a CA doesn\'t need an e-commerce checkout. You need a lead generation engine. A clear "Book a Consultation" button, a simple contact form, and a WhatsApp chat option are your primary conversion tools.',
+                    'By offering a free 15-minute consultation through your website, you lower the barrier for new clients to reach out. Once they experience your expertise firsthand, converting them to paying clients becomes much easier.',
+                ],
+            },
+            {
+                heading: 'Local SEO Dominance',
+                paragraphs: [
+                    'For CAs, local SEO is everything. Optimize your Google Business Profile, ensure your website mentions your city and area multiple times naturally, and collect Google Reviews from satisfied clients. A CA with 50+ positive Google Reviews and a professional website will dominate local search results.',
+                ],
+            },
+        ],
+    },
+    'hotel-resort-website-direct-bookings': {
+        sections: [
+            {
+                heading: 'The OTA Commission Problem',
+                paragraphs: [
+                    'Online Travel Agencies like MakeMyTrip, Goibibo, and Booking.com charge hotels anywhere from 15% to 25% commission per booking. For a hotel doing \u20B950 lakh in annual revenue through OTAs, that\'s \u20B97.5-12.5 lakh going straight to intermediaries.',
+                    'These platforms are useful for discovery, but relying entirely on them is like paying rent on someone else\'s building when you could own your own.',
+                ],
+            },
+            {
+                heading: 'Building a Direct Booking Engine',
+                paragraphs: [
+                    'A custom hotel website with an integrated booking system allows guests to check availability, view room photos, and book directly \u2014 without any commission.',
+                    'Offer a "Book Direct" incentive: a 5-10% discount, free breakfast, or late checkout for direct bookings. This small perk saves you the 20%+ OTA commission while giving guests a better deal. Everyone wins.',
+                ],
+            },
+            {
+                heading: 'Showcasing the Experience',
+                paragraphs: [
+                    'OTA listings are commodity-style: a small photo grid, a star rating, and a price. Your own website lets you tell a story. Full-screen hero videos of your property, virtual room tours, detailed descriptions of amenities, and beautiful food photography create an emotional connection.',
+                    'For resorts and boutique properties especially, the aesthetic presentation is half the selling point. A premium website matches the premium experience you offer.',
+                ],
+            },
+            {
+                heading: 'Capturing Guest Data for Repeat Business',
+                paragraphs: [
+                    'When someone books through MakeMyTrip, that customer data belongs to MakeMyTrip. When they book through your website, you get their email, phone number, and stay preferences.',
+                    'This allows you to send personalized offers for their anniversary, festive season packages, or off-season discounts. Repeat guests booked directly are the most profitable segment for any hotel.',
+                ],
+            },
+        ],
+    },
+    'ngo-trust-website-credibility-donations': {
+        sections: [
+            {
+                heading: 'Trust is Everything in Non-Profit',
+                paragraphs: [
+                    'Before a donor contributes money \u2014 whether it\'s \u20B9500 or \u20B95 lakh \u2014 they want assurance that their money will be used responsibly. Grant agencies and CSR departments conduct online due diligence before approving funding.',
+                    'A professional, transparent website is the single most important credibility signal for any NGO. Without one, you appear less legitimate than organizations that have one, regardless of the quality of your actual work.',
+                ],
+            },
+            {
+                heading: 'What Your NGO Website Must Showcase',
+                paragraphs: [
+                    'Impact numbers front and center: beneficiaries reached, projects completed, funds utilized. Detailed "About" section with team bios, registration certificates (80G, 12A, FCRA if applicable), and annual reports.',
+                    'A dedicated "Our Work" section with photo galleries, beneficiary stories, and project documentation. Real stories with real faces (with consent) are infinitely more powerful than generic stock photos.',
+                ],
+            },
+            {
+                heading: 'Online Donation Integration',
+                paragraphs: [
+                    'Make donating effortless. Integrate Razorpay or PayU with preset donation amounts (\u20B9500, \u20B91,000, \u20B95,000) and a custom amount option. Support UPI, credit cards, and net banking.',
+                    'Add recurring donation options for monthly supporters. A single donor giving \u20B91,000/month is worth \u20B912,000/year \u2014 and they require zero additional acquisition cost after the first conversion.',
+                ],
+            },
+            {
+                heading: 'SEO for Cause-Based Searches',
+                paragraphs: [
+                    'People search for causes they care about: "donate for education India", "child welfare NGO Bihar", "clean water charity". A well-optimized NGO website with blog posts about your mission area attracts organic traffic from people already inclined to support your cause.',
+                ],
+            },
+        ],
+    },
+    'travel-agency-website-beat-aggregators': {
+        sections: [
+            {
+                heading: 'The Aggregator Squeeze',
+                paragraphs: [
+                    'MakeMyTrip, Yatra, and similar platforms have commoditized travel. Your carefully curated Rajasthan heritage tour gets listed alongside 200 nearly identical options, differentiated only by price. It\'s a race to the bottom.',
+                    'When you sell through aggregators, you lose control of the customer relationship. The traveler remembers booking "on MakeMyTrip", not booking with your agency.',
+                ],
+            },
+            {
+                heading: 'Your Website as a Curated Showroom',
+                paragraphs: [
+                    'A custom website lets you present your travel packages the way they deserve to be seen. Rich itinerary pages with day-by-day breakdowns, high-quality destination photography, included/excluded lists, and clear pricing.',
+                    'For niche travel (wildlife safaris, pilgrimage tours, honeymoon packages), a focused website targeting specific keywords can outrank aggregators for long-tail searches like "Kedarnath trek package from Delhi" or "Andaman honeymoon package 5 days".',
+                ],
+            },
+            {
+                heading: 'Building a Direct Lead Pipeline',
+                paragraphs: [
+                    'Travel purchases are high-consideration. People research for weeks before booking. Your website should capture leads at every stage: a "Download Itinerary PDF" gate, a "Get Custom Quote" form, and WhatsApp chat for instant queries.',
+                    'Build an email list and send seasonal offers: monsoon getaways, winter mountain packages, summer beach deals. This direct communication channel is free and infinitely more effective than paying per click on ads.',
+                ],
+            },
+            {
+                heading: 'Google Reviews and Social Proof',
+                paragraphs: [
+                    'Embed Google Reviews, traveler photos, and trip highlights on your website. In travel, social proof is the ultimate conversion tool. A website with 100+ genuine reviews and traveler photos will convert at 3-5x the rate of one without.',
+                ],
+            },
+        ],
+    },
+    'why-business-needs-website-not-just-social-media': {
+        sections: [
+            {
+                heading: 'You\'re Building on Rented Land',
+                paragraphs: [
+                    'Instagram, Facebook, and WhatsApp Business are powerful tools. But here\'s the uncomfortable truth: you don\'t own them. One algorithm change, one policy update, or one account suspension can wipe out your entire digital presence overnight.',
+                    'In 2024, Facebook dramatically reduced organic reach for business pages. Brands that had built their entire customer base on Facebook saw engagement drop 70-80%. Those with their own websites barely noticed.',
+                ],
+            },
+            {
+                heading: 'A Website is Digital Property You Own',
+                paragraphs: [
+                    'Your website is your permanent address on the internet. No algorithm can reduce your visibility. No platform can shut you down. You control every pixel, every word, and every visitor interaction.',
+                    'When someone searches for your business on Google, your website appears. Not your Instagram page buried between competitors. Your website, with your messaging, your branding, and your call-to-action.',
+                ],
+            },
+            {
+                heading: 'Social Media Can\'t Do Everything',
+                paragraphs: [
+                    'Try explaining your 5 service tiers with detailed pricing on an Instagram post. Try letting customers book appointments through a Facebook reel. Try ranking on Google with a WhatsApp status.',
+                    'Social media excels at awareness and engagement. But for conversion \u2014 turning a curious visitor into a paying customer \u2014 nothing beats a well-designed website with clear CTAs, detailed service pages, and easy contact options.',
+                ],
+            },
+            {
+                heading: 'The Winning Strategy: Both Together',
+                paragraphs: [
+                    'The smartest businesses don\'t choose between social media and a website. They use social media to drive traffic TO their website, where the actual conversion happens. Your Instagram bio link, your Facebook page CTA, your Google Business Profile \u2014 they all point to your website as the ultimate destination.',
+                ],
+            },
+        ],
+    },
+    'website-maintenance-cost-india-why-you-need-it': {
+        sections: [
+            {
+                heading: 'What Happens When You Don\'t Maintain a Website',
+                paragraphs: [
+                    'Imagine buying a new car and never getting it serviced. For the first few months, it runs fine. Then the engine oil degrades, the tires wear unevenly, and one day it breaks down completely on a highway.',
+                    'Websites work the same way. Security vulnerabilities appear, SSL certificates expire, hosting plans need renewal, and without updates, your site gradually becomes slower, less secure, and eventually stops working properly.',
+                ],
+            },
+            {
+                heading: 'What Website Maintenance Includes',
+                paragraphs: [
+                    'Regular security patches and framework updates to prevent hacking. SSL certificate management to keep the "https" padlock active. Performance monitoring to ensure fast load times. Database backups so you never lose data.',
+                    'Content updates when you want to change pricing, add new services, or update your portfolio. Bug fixes for any issues that users report. Uptime monitoring to alert you the moment your site goes down.',
+                ],
+            },
+            {
+                heading: 'How Much Does Maintenance Cost?',
+                paragraphs: [
+                    'For a basic business website, maintenance costs \u20B92,000-\u20B95,000 per month in India. This typically includes hosting, security updates, monthly backups, minor content changes, and basic support.',
+                    'For complex web applications with databases, user accounts, and payment processing, expect \u20B95,000-\u20B915,000 per month depending on the scale and complexity of the system.',
+                ],
+            },
+            {
+                heading: 'The Cost of NOT Maintaining',
+                paragraphs: [
+                    'A hacked website can cost you your entire customer database, Google ranking, and brand reputation. Recovery from a security breach typically costs 10-50x what annual maintenance would have cost. An ounce of prevention is worth a pound of cure \u2014 especially in the digital world.',
+                ],
+            },
+        ],
+    },
 };
 
 export default function ArticleClient({ slug }: { slug: string }) {
@@ -330,10 +556,23 @@ export default function ArticleClient({ slug }: { slug: string }) {
         notFound();
     }
 
+    // Extract category safely for use in closures
+    const currentCategory = post.category;
+
     // Find next/prev articles
     const currentIndex = blogPosts.findIndex((p) => p.slug === slug);
     const nextPost = blogPosts[currentIndex + 1] || null;
     const prevPost = blogPosts[currentIndex - 1] || null;
+
+    // Related articles: same category, excluding current, max 3
+    const relatedPosts = blogPosts
+        .filter((p) => p.slug !== slug && p.category === currentCategory)
+        .slice(0, 3);
+    // If not enough same-category posts, fill with nearby posts
+    const additionalPosts = relatedPosts.length < 3
+        ? blogPosts.filter((p) => p.slug !== slug && !relatedPosts.includes(p)).slice(0, 3 - relatedPosts.length)
+        : [];
+    const allRelated = [...relatedPosts, ...additionalPosts];
 
     return (
         <>
@@ -358,7 +597,7 @@ export default function ArticleClient({ slug }: { slug: string }) {
                                 <Clock className="w-3 h-3" />
                                 {post.readTime}
                             </span>
-                            <span className="text-xs text-muted">{post.date}</span>
+                            <span className="text-xs text-muted" suppressHydrationWarning>{new Date(post.date).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                         </div>
                     </Reveal>
                     <Reveal delay={0.15}>
@@ -416,6 +655,34 @@ export default function ArticleClient({ slug }: { slug: string }) {
                             </Button>
                         </div>
                     </Reveal>
+
+                    {/* Related Articles */}
+                    {allRelated.length > 0 && (
+                        <div className="mt-16">
+                            <h3 className="text-xl font-semibold text-foreground mb-6">
+                                Related Articles
+                            </h3>
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {allRelated.map((related) => (
+                                    <Link
+                                        key={related.slug}
+                                        href={`/blog/${related.slug}`}
+                                        className="group border border-default rounded-xl p-5 hover:-translate-y-0.5 hover:border-[var(--accent)] transition-all"
+                                    >
+                                        <span className="px-2 py-0.5 rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/5 text-xs text-foreground font-medium">
+                                            {related.category}
+                                        </span>
+                                        <p className="text-sm font-medium text-foreground mt-3 group-hover:text-[var(--accent)] transition-colors leading-snug line-clamp-2">
+                                            {related.title}
+                                        </p>
+                                        <p className="text-xs text-muted mt-2 leading-relaxed line-clamp-2">
+                                            {related.excerpt}
+                                        </p>
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
                     {/* Prev / Next Navigation */}
                     <div className="grid grid-cols-2 gap-4 mt-12">
