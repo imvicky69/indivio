@@ -22,7 +22,6 @@ export function Navbar() {
     const navLinks = [
         { name: 'About', href: '/about' },
         { name: 'Services', href: '/services' },
-        { name: 'Work', href: '/work' },
         { name: 'Pricing', href: '/pricing' },
         { name: 'Calculator', href: '/estimate' },
         { name: 'Blog', href: '/blog' },

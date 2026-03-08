@@ -92,8 +92,8 @@ export function Hero() {
                 <Reveal delay={0.3}>
                     <div className="flex flex-col sm:flex-row items-center gap-4">
                         <Button size="xl" className="group" asChild>
-                            <Link href="/work">
-                                View Our Work
+                            <Link href="/services">
+                                Explore Services
                                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </Button>
