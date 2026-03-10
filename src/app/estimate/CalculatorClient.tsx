@@ -23,22 +23,22 @@ interface EstimateState {
 
 const PROJECT_BASES: Record<ProjectType, number> = {
     'Business Website': 15000,
-    'E-Commerce': 35000,
-    'Web App / Portal': 50000,
-    'School ERP': 60000,
+    'E-Commerce': 28000,
+    'Web App / Portal': 42000,
+    'School ERP': 50000,
 };
 
 const DESIGN_MULTI: Record<DesignStyle, number> = {
     'Template-Based': 1.0,
-    'Premium Custom': 1.5,
-    'Award-Winning UI/UX': 2.0,
+    'Premium Custom': 1.3,
+    'Award-Winning UI/UX': 1.8,
 };
 
 const FEATURE_PRICE: Record<Feature, number> = {
     'SEO Setup': 5000,
-    'CMS (Blog)': 8000,
+    'CMS (Blog)': 5000,
     'Payment Gateway': 5000,
-    'User Logins': 10000,
+    'User Logins': 8000,
     'Advanced Animations': 8000,
 };
 
@@ -55,7 +55,7 @@ function calculateEstimate(state: EstimateState): [number, number] {
 
     // Add cost for pages (assuming first 5 pages are included)
     if (state.pages > 5) {
-        base += (state.pages - 5) * 2000;
+        base += (state.pages - 5) * 1500;
     }
 
     let subtotal = base * DESIGN_MULTI[state.design];
@@ -251,8 +251,8 @@ export default function CalculatorClient() {
                                             key={type}
                                             onClick={() => setState({ ...state, projectType: type })}
                                             className={`p-6 rounded-2xl border-2 text-left transition-all duration-200 hover:-translate-y-1 relative overflow-hidden group ${state.projectType === type
-                                                    ? 'border-[var(--accent)] bg-[var(--accent)]/5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] shadow-[var(--accent-glow)]/20'
-                                                    : 'border-default/50 bg-background hover:border-[var(--muted)]'
+                                                ? 'border-[var(--accent)] bg-[var(--accent)]/5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] shadow-[var(--accent-glow)]/20'
+                                                : 'border-default/50 bg-background hover:border-[var(--muted)]'
                                                 }`}
                                         >
                                             <div className="flex justify-between items-start mb-2">
@@ -308,8 +308,8 @@ export default function CalculatorClient() {
                                             key={design}
                                             onClick={() => setState({ ...state, design })}
                                             className={`p-6 rounded-2xl border-2 text-left transition-all duration-200 hover:-translate-y-1 relative group flex items-center gap-6 ${state.design === design
-                                                    ? 'border-[var(--accent)] bg-[var(--accent)]/5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] shadow-[var(--accent-glow)]/20'
-                                                    : 'border-default/50 bg-background hover:border-[var(--muted)]'
+                                                ? 'border-[var(--accent)] bg-[var(--accent)]/5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] shadow-[var(--accent-glow)]/20'
+                                                : 'border-default/50 bg-background hover:border-[var(--muted)]'
                                                 }`}
                                         >
                                             <div className={`w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center ${state.design === design ? 'border-[var(--accent)] bg-[var(--accent)]' : 'border-muted'}`}>
@@ -346,8 +346,8 @@ export default function CalculatorClient() {
                                                 key={feature}
                                                 onClick={() => toggleFeature(feature)}
                                                 className={`p-5 rounded-2xl border-2 flex items-center gap-4 transition-all duration-200 hover:-translate-y-1 ${isSelected
-                                                        ? 'border-[var(--accent)] bg-[var(--accent)]/5 shadow-[0_4px_20px_rgb(0,0,0,0.08)] shadow-[var(--accent-glow)]/20'
-                                                        : 'border-default/50 bg-background hover:border-muted'
+                                                    ? 'border-[var(--accent)] bg-[var(--accent)]/5 shadow-[0_4px_20px_rgb(0,0,0,0.08)] shadow-[var(--accent-glow)]/20'
+                                                    : 'border-default/50 bg-background hover:border-muted'
                                                     }`}
                                             >
                                                 <div className={`w-6 h-6 shrink-0 rounded-lg border-2 flex items-center justify-center transition-colors ${isSelected ? 'bg-[var(--accent)] border-[var(--accent)]' : 'border-neutral-300 dark:border-neutral-600'}`}>
@@ -376,8 +376,8 @@ export default function CalculatorClient() {
                                             key={time}
                                             onClick={() => setState({ ...state, timeline: time })}
                                             className={`p-6 rounded-2xl border-2 text-left transition-all duration-200 hover:-translate-y-1 relative group flex items-center gap-6 ${state.timeline === time
-                                                    ? 'border-[var(--accent)] bg-[var(--accent)]/5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] shadow-[var(--accent-glow)]/20'
-                                                    : 'border-default/50 bg-background hover:border-[var(--muted)]'
+                                                ? 'border-[var(--accent)] bg-[var(--accent)]/5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] shadow-[var(--accent-glow)]/20'
+                                                : 'border-default/50 bg-background hover:border-[var(--muted)]'
                                                 }`}
                                         >
                                             <div className={`w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center ${state.timeline === time ? 'border-[var(--accent)] bg-[var(--accent)]' : 'border-muted'}`}>
