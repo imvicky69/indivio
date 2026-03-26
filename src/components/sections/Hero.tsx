@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-const FULL_TEXT = 'We design & build websites that grow your business.';
+const FULL_TEXT = 'Websites, Mobile Apps & Coaching ERPs.';
 const TYPING_SPEED = 45; // ms per character
 
 function TypewriterHeading() {
@@ -29,8 +29,9 @@ function TypewriterHeading() {
     }, []);
 
     // Find the gradient portion to style it
-    const gradientStart = FULL_TEXT.indexOf('websites that grow');
-    const gradientEnd = gradientStart + 'websites that grow'.length;
+    const highlightText = 'Websites, Mobile Apps & Coaching ERPs.';
+    const gradientStart = FULL_TEXT.indexOf(highlightText);
+    const gradientEnd = gradientStart + highlightText.length;
 
     const renderText = () => {
         const chars = displayedText.split('');
@@ -85,7 +86,8 @@ export function Hero() {
 
                 <Reveal delay={0.2}>
                     <p className="text-base md:text-lg text-muted max-w-lg mx-auto mb-10 leading-relaxed">
-                        Custom websites, web apps, and school management platforms — crafted for businesses across India.
+                        Empowering coaching institutes and growing businesses with high-performance native apps, custom software, and robust web solutions. 
+                        Based in Nirmali, Bihar, and scaling pan-India.
                     </p>
                 </Reveal>
 

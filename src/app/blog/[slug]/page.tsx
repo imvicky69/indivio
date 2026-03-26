@@ -70,16 +70,28 @@ export default async function BlogArticlePage({
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': url,
+        },
         headline: post.title,
         description: post.excerpt,
-        author: [
-            {
-                '@type': 'Organization',
-                name: 'Indivio',
-                url: baseUrl,
+        image: 'https://indivio.in/images/indivio.png',
+        author: {
+            '@type': 'Organization',
+            name: 'Indivio',
+            url: baseUrl,
+        },
+        publisher: {
+            '@type': 'Organization',
+            name: 'Indivio',
+            logo: {
+                '@type': 'ImageObject',
+                url: 'https://indivio.in/images/logo.png',
             },
-        ],
+        },
         datePublished: post.date,
+        dateModified: post.date,
         url: url,
     };
 

@@ -23,7 +23,6 @@ export function Navbar() {
         { name: 'About', href: '/about' },
         { name: 'Services', href: '/services' },
         { name: 'Pricing', href: '/pricing' },
-        { name: 'Calculator', href: '/estimate' },
         { name: 'Blog', href: '/blog' },
     ];
 
@@ -38,7 +37,7 @@ export function Navbar() {
                 <Link href="/" className="relative h-8 w-28 group">
                     <Image
                         src="/images/logo.png"
-                        alt="Indivio"
+                        alt="Indivio - Software Company in Nirmali Bihar"
                         fill
                         className="object-contain group-hover:opacity-80 transition-opacity"
                         priority

@@ -23,8 +23,8 @@ const faqs = [
         answer: 'Absolutely. We frequently modernize existing sites. We\'ll audit your current site, understand your goals, and deliver a fresh, high-performing redesign.',
     },
     {
-        question: 'Do you work with clients outside India?',
-        answer: 'Yes. While we\'re based in India, we work with clients globally. Our structured process makes remote collaboration seamless across time zones.',
+        question: 'Do you offer services outside Nirmali, Bihar?',
+        answer: 'Yes! While Indivio started in Nirmali, Bihar, we proudly serve small businesses, schools, and coaching centers across tier 2 and tier 3 cities all over India.',
     },
     {
         question: 'What if I need changes after delivery?',

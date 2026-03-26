@@ -4,6 +4,7 @@ import { Reveal, StaggerContainer, StaggerItem } from '@/components/ui/reveal';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Check, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
+import { useState } from 'react';
 
 /* ── Hero ─────────────────────────────────────────────── */
 function PricingHero() {
@@ -95,7 +96,7 @@ const tiers: PricingTier[] = [
 
 function PricingCards() {
     return (
-        <section className="py-12">
+        <section className="pb-24">
             <div className="max-w-6xl mx-auto px-6">
                 <StaggerContainer className="grid md:grid-cols-3 gap-6 items-start">
                     {tiers.map((tier) => (
@@ -164,6 +165,120 @@ function PricingCards() {
     );
 }
 
+/* ── App Development Pricing ──────────────────────────── */
+const appTiers: PricingTier[] = [
+    {
+        name: 'Hybrid App (React Native/Flutter)',
+        price: '₹45,000',
+        priceSuffix: 'onwards',
+        description: 'Perfect for startups and businesses needing an app on both iOS and Android instantly using a single codebase.',
+        features: [
+            'Cross-platform iOS & Android',
+            'Standard UI/UX components',
+            'REST API & database integration',
+            'Push notification setup',
+            'App Store & Play Store publication',
+            '2 months free support',
+        ],
+        cta: 'Start Cross-Platform',
+        highlighted: true,
+    },
+    {
+        name: 'Native App Development',
+        price: '₹85,000',
+        priceSuffix: 'onwards',
+        description: 'For businesses requiring peak performance, complex animations, or deep hardware integrations using Swift and Kotlin.',
+        features: [
+            'Dedicated iOS and Android codebases',
+            'Custom high-performance UI/UX',
+            'Deep hardware/OS integration',
+            'Advanced offline database sync',
+            'Complex background processing',
+            '3 months free support',
+        ],
+        cta: 'Choose Native',
+    },
+    {
+        name: 'Enterprise / Super App',
+        price: 'Let\'s Talk',
+        description: 'For complex ecosystems — telemedicine, ride-sharing, coaching ERPs, or apps requiring heavy custom backend architecture.',
+        features: [
+            'End-to-end system architecture',
+            'Custom microservices backend',
+            'Advanced user roles & web admin panels',
+            'Third-party & payment integrations',
+            'Bank-grade security & Video DRM',
+            'Dedicated ongoing maintenance team',
+        ],
+        cta: 'Request a Quote',
+    },
+];
+
+function AppPricingCards() {
+    return (
+        <section className="pb-24">
+            <div className="max-w-6xl mx-auto px-6">
+                <StaggerContainer className="grid md:grid-cols-3 gap-6 items-start">
+                    {appTiers.map((tier) => (
+                        <StaggerItem key={tier.name}>
+                            <div
+                                className={`rounded-2xl border p-8 h-full flex flex-col transition-all duration-300 hover:-translate-y-1 ${tier.highlighted
+                                    ? 'border-foreground bg-[var(--background)] shadow-lg relative'
+                                    : 'border-default bg-[var(--background)]'
+                                    }`}
+                            >
+                                {tier.highlighted && (
+                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                                        <span className="bg-foreground text-[var(--background)] text-xs font-medium px-3 py-1 rounded-full">
+                                            Most Popular
+                                        </span>
+                                    </div>
+                                )}
+
+                                <div className="mb-6">
+                                    <h3 className="text-lg font-semibold text-foreground mb-1">{tier.name}</h3>
+                                    <div className="flex items-baseline gap-1 mb-3">
+                                        <span className="text-3xl md:text-4xl font-semibold text-foreground tracking-tight">
+                                            {tier.price}
+                                        </span>
+                                        {tier.priceSuffix && (
+                                            <span className="text-sm text-muted">{tier.priceSuffix}</span>
+                                        )}
+                                    </div>
+                                    <p className="text-sm text-muted leading-relaxed">
+                                        {tier.description}
+                                    </p>
+                                </div>
+
+                                <div className="space-y-3 mb-8 flex-1">
+                                    {tier.features.map((feature, i) => (
+                                        <div key={i} className="flex items-start gap-3">
+                                            <Check className="w-4 h-4 text-muted mt-0.5 flex-shrink-0" strokeWidth={2} />
+                                            <span className="text-sm text-muted">{feature}</span>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <Button
+                                    size="lg"
+                                    variant={tier.highlighted ? 'default' : 'outline'}
+                                    className="w-full group"
+                                    asChild
+                                >
+                                    <Link href="/#contact">
+                                        {tier.cta}
+                                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                    </Link>
+                                </Button>
+                            </div>
+                        </StaggerItem>
+                    ))}
+                </StaggerContainer>
+            </div>
+        </section>
+    );
+}
+
 /* ── Optional Add-ons ─────────────────────────────────── */
 const addons = [
     { name: 'Logo & Branding', price: '₹4,999+', desc: 'Professional logo design and brand guidelines tailored to your vision.' },
@@ -188,7 +303,7 @@ function OptionalAddons() {
                         </p>
                     </Reveal>
                 </div>
-                
+
                 <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {addons.map((addon) => (
                         <StaggerItem key={addon.name}>
@@ -324,7 +439,7 @@ function HostingInfo() {
                         We don't just build your website, we keep it online fast and secure. We offer an industry-first <strong>8 Months of FREE hosting</strong> across all builds.
                     </p>
                 </Reveal>
-                
+
                 <Reveal delay={0.2}>
                     <div className="grid md:grid-cols-3 gap-6 text-left">
                         <div className="p-6 rounded-2xl border border-default bg-[var(--background)] relative overflow-hidden">
@@ -334,7 +449,7 @@ function HostingInfo() {
                             <p className="text-sm text-muted">Perfect for portfolios, local business landing pages, and small static websites.</p>
                         </div>
                         <div className="p-6 rounded-2xl border border-foreground bg-[var(--background)] shadow-sm relative overflow-hidden relative">
-                             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-foreground text-[var(--background)] px-3 py-1 rounded-full text-xs font-medium">Most Normal</div>
+                            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-foreground text-[var(--background)] px-3 py-1 rounded-full text-xs font-medium">Most Normal</div>
                             <div className="text-2xl font-semibold text-foreground mb-1 mt-2">₹399<span className="text-sm text-muted font-normal">/mo</span></div>
                             <h3 className="text-sm font-medium text-muted uppercase tracking-wider mb-2">Standard Sites</h3>
                             <p className="text-sm text-muted">Ideal for multi-page blogs, company portals, and small stores.</p>
@@ -617,15 +732,56 @@ function PricingCTA() {
 
 /* ── Page Export ───────────────────────────────────────── */
 export default function PricingPage() {
+    const [view, setView] = useState<'web' | 'app'>('web');
+
     return (
         <>
             <PricingHero />
-            <PricingCards />
-            <OptionalAddons />
+            
+            {/* View Toggle */}
+            <section className="pb-16 -mt-8 relative z-20">
+                <Reveal delay={0.3}>
+                    <div className="flex justify-center max-w-6xl mx-auto px-6">
+                        <div className="bg-[var(--background)] border border-default p-1.5 rounded-full inline-flex shadow-sm">
+                            <button
+                                onClick={() => setView('web')}
+                                className={`px-8 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
+                                    view === 'web' 
+                                        ? 'bg-foreground text-[var(--background)] shadow-md translate-x-0' 
+                                        : 'text-muted hover:text-foreground'
+                                }`}
+                            >
+                                Web Development
+                            </button>
+                            <button
+                                onClick={() => setView('app')}
+                                className={`px-8 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
+                                    view === 'app' 
+                                        ? 'bg-foreground text-[var(--background)] shadow-md translate-x-0' 
+                                        : 'text-muted hover:text-foreground'
+                                }`}
+                            >
+                                App Development
+                            </button>
+                        </div>
+                    </div>
+                </Reveal>
+            </section>
+
+            {view === 'web' ? <PricingCards /> : <AppPricingCards />}
+            
+            {view === 'web' && <OptionalAddons />}
+            
             <CostDrivers />
             <EveryPlanIncludes />
-            <HostingInfo />
-            <MaintenancePlans />
+            
+            {view === 'web' && (
+                <>
+                    <HostingInfo />
+                    <MaintenancePlans />
+                </>
+            )}
+            
             <PaymentProcess />
             <PricingComparison />
             <PricingFAQ />

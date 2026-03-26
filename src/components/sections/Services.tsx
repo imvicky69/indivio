@@ -35,12 +35,12 @@ export function Services() {
                         <div className="sticky top-24">
                             <Reveal>
                                 <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4 tracking-tight">
-                                    What we do
+                                    Software & Web Development Services
                                 </h2>
                             </Reveal>
                             <Reveal delay={0.1}>
                                 <p className="text-muted text-base leading-relaxed">
-                                    End-to-end digital solutions, from design to deployment and beyond.
+                                    End-to-end digital solutions for businesses in Bihar and across India, from design to deployment.
                                 </p>
                             </Reveal>
                         </div>

@@ -3,6 +3,8 @@ import { TrustedBy } from "@/components/sections/TrustedBy";
 import { WhoWeHelp } from "@/components/sections/WhoWeHelp";
 import { Stats } from "@/components/sections/Stats";
 import { Services } from "@/components/sections/Services";
+import CoachingManagement from "@/components/sections/CoachingManagement";
+import AppExperience from "@/components/sections/AppExperience";
 import { Process } from "@/components/sections/Process";
 import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
 import { Guarantee } from "@/components/sections/Guarantee";
@@ -20,6 +22,8 @@ export default function Home() {
       <WhoWeHelp />
       <Stats />
       <Services />
+      <CoachingManagement />
+      <AppExperience />
       <Process />
       <FeaturedProjects />
       <Guarantee />

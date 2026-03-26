@@ -13,7 +13,7 @@ export function Footer() {
                         <Link href="/" className="inline-block mb-3">
                             <Image
                                 src="/images/logo.png"
-                                alt="Indivio"
+                                alt="Indivio - Web Development Company in India"
                                 width={100}
                                 height={28}
                                 className="dark:invert"

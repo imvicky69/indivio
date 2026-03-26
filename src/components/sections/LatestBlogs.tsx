@@ -17,12 +17,12 @@ export function LatestBlogs() {
                     <div className="max-w-xl">
                         <Reveal>
                             <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-foreground mb-4">
-                                Latest Insights
+                                Web & Business Insights
                             </h2>
                         </Reveal>
                         <Reveal delay={0.1}>
                             <p className="text-lg text-muted">
-                                Thoughts, strategies, and guides for growing your business online.
+                                Strategies and guides for scaling local businesses, coaching centers, and schools online in India.
                             </p>
                         </Reveal>
                     </div>

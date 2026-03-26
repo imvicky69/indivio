@@ -3,27 +3,63 @@ export function StructuredData() {
         '@context': 'https://schema.org',
         '@type': 'ProfessionalService',
         name: 'Indivio',
-        description: 'Custom websites, web apps, and school management systems built for performance.',
+        description: 'Custom software development, web apps, and school management systems built for performance and growth.',
         url: 'https://indivio.in',
         email: 'hello@indivio.in',
         logo: 'https://indivio.in/images/logo.png',
         image: 'https://indivio.in/images/indivio.png',
-        areaServed: {
-            '@type': 'Country',
-            name: 'India',
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Nirmali',
+            addressRegion: 'Bihar',
+            addressCountry: 'IN',
         },
+        areaServed: [
+            {
+                '@type': 'Country',
+                name: 'India',
+            },
+            {
+                '@type': 'State',
+                name: 'Bihar',
+            }
+        ],
         serviceType: [
-            'Web Development',
+            'Software Development',
             'Web Application Development',
             'School Management Software',
             'E-Commerce Development',
-            'Landing Page Design',
+            'Small Business IT Solutions',
         ],
         priceRange: '₹15,000 - ₹2,00,000+',
         knowsLanguage: ['English', 'Hindi'],
         sameAs: [
             'https://wa.me/919798836199',
         ],
+    };
+
+    const organizationSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Indivio',
+        url: 'https://indivio.in',
+        logo: 'https://indivio.in/images/logo.png',
+        description: 'Indivio specializes in custom software development, school management systems (ERP), and web apps for small businesses. Based in Nirmali, Bihar, serving all over India.',
+        foundingLocation: {
+            '@type': 'Place',
+            address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Nirmali',
+                addressRegion: 'Bihar',
+                addressCountry: 'IN',
+            }
+        },
+        contactPoint: {
+            '@type': 'ContactPoint',
+            contactType: 'customer support',
+            email: 'hello@indivio.in',
+            availableLanguage: ['English', 'Hindi']
+        }
     };
 
     const websiteSchema = {
@@ -114,6 +150,10 @@ export function StructuredData() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
             />
             <script
                 type="application/ld+json"

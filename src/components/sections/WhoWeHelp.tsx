@@ -28,12 +28,12 @@ export function WhoWeHelp() {
                 <div className="max-w-2xl mb-16">
                     <Reveal>
                         <h2 className="text-3xl md:text-4xl font-semibold text-foreground mb-4 tracking-tight">
-                            Who we help
+                            Who we help in India
                         </h2>
                     </Reveal>
                     <Reveal delay={0.1}>
-                        <p className="text-muted text-base">
-                            We work with organizations that care about their digital presence.
+                        <p className="text-muted text-base mt-2 leading-relaxed">
+                            We partner with local businesses, coaching centers, and schools in tier 2 and tier 3 cities, delivering impact from Nirmali to all across India.
                         </p>
                     </Reveal>
                 </div>
