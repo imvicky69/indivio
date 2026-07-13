@@ -10,24 +10,37 @@ export function ThemeToggle() {
 
     useEffect(() => {
         setMounted(true);
-        // Check if user has a saved preference
+        
+        // Initial sync
         const saved = localStorage.getItem('theme');
+        let initialDark = false;
         if (saved === 'dark') {
-            setIsDark(true);
+            initialDark = true;
             document.documentElement.classList.add('dark');
         } else if (saved === 'light') {
-            setIsDark(false);
+            initialDark = false;
             document.documentElement.classList.remove('dark');
         } else {
-            // Use system preference
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            setIsDark(prefersDark);
+            initialDark = prefersDark;
             if (prefersDark) {
                 document.documentElement.classList.add('dark');
             } else {
                 document.documentElement.classList.remove('dark');
             }
         }
+        setIsDark(initialDark);
+
+        // Sync with class changes on document.documentElement (e.g. from AutoThemeTrigger)
+        const observer = new MutationObserver(() => {
+            setIsDark(document.documentElement.classList.contains('dark'));
+        });
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+
+        return () => observer.disconnect();
     }, []);
 
     const toggleTheme = () => {
@@ -41,6 +54,7 @@ export function ThemeToggle() {
             document.documentElement.classList.remove('dark');
             localStorage.setItem('theme', 'light');
         }
+        sessionStorage.setItem('theme_manually_set', 'true');
     };
 
     if (!mounted) return null;

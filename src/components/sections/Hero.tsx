@@ -6,8 +6,9 @@ import { Reveal } from '@/components/ui/reveal';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { Antigravity } from '@/components/ui/Antigravity';
 
-const FULL_TEXT = 'Websites, Mobile Apps & Coaching ERPs.';
+const FULL_TEXT = 'Premium Websites, Mobile Apps & Coaching ERPs.';
 const TYPING_SPEED = 45; // ms per character
 
 function TypewriterHeading() {
@@ -59,25 +60,63 @@ function TypewriterHeading() {
 }
 
 export function Hero() {
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    useEffect(() => {
+        const checkTheme = () => {
+            setIsDarkMode(document.documentElement.classList.contains('dark'));
+        };
+        checkTheme();
+
+        const observer = new MutationObserver(checkTheme);
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['class'],
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <section className="relative min-h-[92vh] flex items-center justify-center pt-16 overflow-hidden">
             {/* Background grid pattern */}
-            <div className="absolute inset-0 bg-grid opacity-40 dark:opacity-20" />
+            <div className="absolute inset-0 bg-grid opacity-30 dark:opacity-10 pointer-events-none" />
 
-            {/* Animated glow orbs */}
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[var(--accent)] rounded-full blur-[120px] animate-glow-pulse opacity-20" />
-            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-400 rounded-full blur-[100px] animate-glow-pulse-slow opacity-15" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--accent)] rounded-full blur-[200px] opacity-[0.07]" />
+            {/* Antigravity background */}
+            <div className="absolute inset-0 z-0 opacity-80 dark:opacity-60 pointer-events-none">
+                <Antigravity
+                    count={200}
+                    magnetRadius={10}
+                    ringRadius={9}
+                    waveSpeed={0.3}
+                    waveAmplitude={1.2}
+                    particleSize={1.5}
+                    lerpSpeed={0.06}
+                    color={isDarkMode ? '#60a5fa' : '#2563eb'}
+                    autoAnimate={false}
+                    particleVariance={0.8}
+                    rotationSpeed={0.02}
+                    depthFactor={1.2}
+                    pulseSpeed={2.5}
+                    particleShape="capsule"
+                    fieldStrength={8}
+                />
+            </div>
+
+            {/* Animated glow orbs for ambient backing */}
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[var(--accent)] rounded-full blur-[120px] animate-glow-pulse opacity-15 dark:opacity-20 pointer-events-none" />
+            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-400 rounded-full blur-[100px] animate-glow-pulse-slow opacity-10 dark:opacity-15 pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--accent)] rounded-full blur-[200px] opacity-[0.05] dark:opacity-[0.07] pointer-events-none" />
 
             {/* Gradient fade at bottom */}
-            <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[var(--background)] to-transparent z-10" />
+            <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[var(--background)] to-transparent z-10 pointer-events-none" />
 
             <div className="max-w-6xl mx-auto px-6 relative z-20 text-center flex flex-col items-center">
                 <Reveal delay={0}>
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/5 mb-8">
                         <div className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse" />
                         <span className="text-xs text-[var(--accent)] font-medium tracking-wide uppercase">
-                            Now Accepting Projects
+                            Now Accepting Projects for 2026
                         </span>
                     </div>
                 </Reveal>
@@ -85,9 +124,9 @@ export function Hero() {
                 <TypewriterHeading />
 
                 <Reveal delay={0.2}>
-                    <p className="text-base md:text-lg text-muted max-w-lg mx-auto mb-10 leading-relaxed">
-                        Empowering coaching institutes and growing businesses with high-performance native apps, custom software, and robust web solutions. 
-                        Based in Nirmali, Bihar, and scaling pan-India.
+                    <p className="text-base md:text-lg text-muted max-w-2xl mx-auto mb-10 leading-relaxed">
+                        We design and engineer high-performance native apps, custom ERP software, and stunning web solutions. 
+                        Scaling coaching institutes and growing businesses from Nirmali, Bihar to all of India.
                     </p>
                 </Reveal>
 
@@ -108,3 +147,4 @@ export function Hero() {
         </section>
     );
 }
+

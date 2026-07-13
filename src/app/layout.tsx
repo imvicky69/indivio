@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Geist } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
+import { AutoThemeTrigger } from "@/components/ui/AutoThemeTrigger";
 import { StructuredData } from "@/components/seo/StructuredData";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -157,12 +161,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={cn("scroll-smooth", "font-sans", geist.variable)}>
       <body
         className={`${inter.variable} font-sans antialiased min-h-screen flex flex-col`}
       >
         <StructuredData />
         <ScrollProgress />
+        <AutoThemeTrigger />
         <Navbar />
         <main className="flex-1">
           {children}

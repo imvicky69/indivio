@@ -45,7 +45,7 @@ function ServicesHero() {
 /* ── Service Detail Component ─────────────────────────── */
 interface ServiceDetailProps {
     id: string;
-    icon: React.ElementType;
+    icon: React.ComponentType<any>;
     number: string;
     title: string;
     subtitle: string;

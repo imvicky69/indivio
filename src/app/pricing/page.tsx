@@ -22,9 +22,20 @@ function PricingHero() {
                     </h1>
                 </Reveal>
                 <Reveal delay={0.2}>
-                    <p className="text-lg text-muted leading-relaxed max-w-xl mx-auto">
+                    <p className="text-lg text-muted leading-relaxed max-w-xl mx-auto mb-6">
                         Every project is unique. Pick a plan that fits — or let us build a custom quote based on exactly what you need.
                     </p>
+                </Reveal>
+                <Reveal delay={0.25}>
+                    <div>
+                        <Link 
+                            href="/showcase" 
+                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-light transition-colors group"
+                        >
+                            See our past work & case studies
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                        </Link>
+                    </div>
                 </Reveal>
             </div>
         </section>

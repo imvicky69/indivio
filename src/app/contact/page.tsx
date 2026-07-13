@@ -52,8 +52,8 @@ const contactMethods = [
     {
         icon: Mail,
         title: 'Email',
-        value: 'hello@indivio.in',
-        href: 'mailto:hello@indivio.in',
+        value: 'indivio.in@gmail.com',
+        href: 'mailto:indivio.in@gmail.com',
     },
     {
         icon: MapPin,
@@ -286,8 +286,8 @@ function ContactForm() {
 
                             <p className="text-xs text-muted text-center">
                                 Or email us directly at{' '}
-                                <Link href="mailto:hello@indivio.in" className="text-foreground underline underline-offset-2">
-                                    hello@indivio.in
+                                <Link href="mailto:indivio.in@gmail.com" className="text-foreground underline underline-offset-2">
+                                    indivio.in@gmail.com
                                 </Link>
                             </p>
                         </form>

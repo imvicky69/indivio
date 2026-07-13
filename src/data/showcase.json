@@ -1,0 +1,74 @@
+[
+    {
+        "slug": "lele-delivery-app",
+        "title": "Lele Delivery App",
+        "subtitle": "On-Demand Hyperlocal Food Delivery Application",
+        "category": "Mobile App",
+        "shortDescription": "A high-performance Android application providing seamless, real-time food delivery services connecting local restaurants and customers.",
+        "longDescription": "Lele Delivery App was built to address the lack of reliable food delivery infrastructure in tier 2 and tier 3 cities in Bihar, India. The application handles high volumes of concurrent orders daily, featuring real-time order tracking, localized restaurant recommendations, and optimized routing for delivery executives.",
+        "techStack": [
+            "Android SDK",
+            "Java/Kotlin",
+            "Firebase",
+            "Google Maps API",
+            "Node.js",
+            "REST API"
+        ],
+        "logoUrl": "/images/lele.png",
+        "playstoreUrl": "https://play.google.com/store/apps/details?id=com.raushan.lele.app&hl=en_IN",
+        "webUrl": "https://leleindia.store",
+        "features": [
+            "Real-Time GPS Order Tracking with Google Maps Integration",
+            "Instant Push Notifications for Status Updates",
+            "Localized, Multi-restaurant Search and Discovery",
+            "Interactive Customer Reviews and Food Ratings",
+            "Secure Checkout and Seamless Online Payment Gateway",
+            "Dedicated Delivery Executive Routing and Dashboard"
+        ],
+        "challenge": "Developing a food delivery app for regions with variable mobile network bandwidths (2G/3G/4G) while maintaining real-time GPS tracking accuracy and low latency communication between clients, restaurants, and riders.",
+        "solution": "Built a lightweight native Android core that aggregates GPS updates in batches. Utilized Firebase Cloud Messaging and WebSockets for communication, minimizing data payloads and conserving client battery life during active tracking sessions.",
+        "results": "The app successfully launched on the Google Play Store, managing thousands of orders weekly. It maintains high reliability with a crash-free session rate of over 99.8% even under poor connectivity conditions.",
+        "testimonial": {
+            "quote": "Lele Delivery has transformed food ordering in our region. The native app is extremely fast and the real-time tracking is precise, allowing us to manage and deliver hundreds of orders every day without a hitch.",
+            "author": "Raushan Kumar",
+            "role": "Founder, Lele India Group"
+        },
+        "year": "2025",
+        "client": "Lele India"
+    },
+    {
+        "slug": "lele-india-store",
+        "title": "Lele India Web Store",
+        "subtitle": "Hyperlocal E-commerce & Direct Ordering Web Platform",
+        "category": "Web App",
+        "shortDescription": "A modern, ultra-fast Progressive Web App (PWA) that allows customers to order food and products directly in their browsers.",
+        "longDescription": "The Lele India Web Store was built as the primary web front-end to complement the mobile app. Designed to load under 1.2 seconds, it acts as a lightweight, zero-install ordering platform optimized heavily for mobile viewports, SEO, and quick checkouts.",
+        "techStack": [
+            "Next.js",
+            "React",
+            "Tailwind CSS",
+            "TypeScript",
+            "MongoDB",
+            "Vercel"
+        ],
+        "logoUrl": "/images/lele.png",
+        "webUrl": "https://leleindia.store",
+        "features": [
+            "Full Progressive Web App (PWA) Support (Installable on iOS & Android)",
+            "Optimized Mobile-First Interface & Light-speed Checkout",
+            "Dynamic Catalog Synchronization with the Backend database",
+            "Direct WhatsApp Order Notification Sharing",
+            "Highly SEO-Optimized Structure with Server-Side Rendering (SSR)"
+        ],
+        "challenge": "Creating a web store that serves as a low-friction entry point for users, meaning it must load instantly even on low-tier mobile devices with slow networks, while maintaining a rich, app-like interactive feel.",
+        "solution": "Implemented Next.js App Router with React Server Components (RSC) to render static content on the server. Used image optimization and tailwind purging to drop initial bundle sizes. Integrated WhatsApp web APIs for alternative order updates.",
+        "results": "Achieved near-perfect Lighthouse scores (Performance: 98, SEO: 100). The web store currently contributes over 35% of overall order volumes, expanding the service reach to clients who do not install applications.",
+        "testimonial": {
+            "quote": "The web store load speed is incredible. Customers can browse and check out in under a minute without installing anything, which has reduced checkout drop-offs dramatically.",
+            "author": "Lele Engineering Team",
+            "role": "Core Developers"
+        },
+        "year": "2025",
+        "client": "Lele India"
+    }
+]
